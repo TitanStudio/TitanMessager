@@ -12,16 +12,36 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import "UIButton+ATButton.h"
 
 
 
 
+// ==================== [ 尺寸 ] ==================== //
+#define SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define SCREEN_H [UIScreen mainScreen].bounds.size.height
 
 
 
+// ==================== [ 颜色 ] ==================== //
+#define COLOR_TINT [UIColor colorWithRed:0.4 green:0.8 blue:1.0 alpha:1.0]
+#define COLOR_BACKGROUND [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:243 / 255.0 alpha:1]
+#define COLOR_WHITE [UIColor whiteColor]
 
 
+// ==================== [ 通知 ] ==================== //
+#define NOTI_LEFTVIEW       @"LEFTVIEW"
+#define NOTI_LEFTVIEW_OPEN  @"OPEN"
+#define NOTI_LEFTVIEW_CLOSE @"CLOSE"
 
+#define NOTI_XMPP_JID @"JID"
+
+// ==================== [ 调试 ] ==================== //
+#define DEBUG_FUNC NSLog(@"%s",__func__);
+#define DEBUG_LOG(description)     NSLog(@"%@",description);
+#define DEBUG_LOG_OBJ(description,obj) NSLog(@"%@:%@",description,obj);
+#define DEBUG_LOG_POINT(point) NSLog(@"{%f,%f}",point.x,point.y);
+#define DEBUG_LOG_SIZE(size) NSLog(@"{%f,%f}",size.width,size.height);
 
 
 
