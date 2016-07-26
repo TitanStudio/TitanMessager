@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
+
+
 @interface BaseViewController ()
 
 @end
@@ -17,6 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,5 +44,8 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
+
+
+
 
 @end

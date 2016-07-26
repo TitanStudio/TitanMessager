@@ -14,12 +14,16 @@
 
 #import "UIButton+ATButton.h"
 
-
+#import "LoginViewController.h"
+#import "SCLAlertView+ATAlert.h"
+//#import "UIViewController+ATScreenGesture.h"
 
 
 // ==================== [ 尺寸 ] ==================== //
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
+#define SCREEN_CenterX SCREEN_W * 0.5
+#define SCREEN_CenterY SCREEN_H * 0.5
 
 
 
@@ -34,14 +38,25 @@
 #define NOTI_LEFTVIEW_OPEN  @"OPEN"
 #define NOTI_LEFTVIEW_CLOSE @"CLOSE"
 
+#define NOTI_XMPP @"XMPP"
+#define NOTI_XMPP_DISCONNECT @"XMPP_DISCONNECT"
+#define NOTI_XMPP_CONNECT @"XMPP_CONNECT"
+
+#define NOTI_XMPP_CONNECT_SUCCESS @"CONNECT_SUCCESS"
+#define NOTI_XMPP_CONNECT_FAIL    @"CONNECT_FAIL"
 #define NOTI_XMPP_JID @"JID"
+
+
+#define NOTI_MESSAGE @"MESSAGE"
 
 // ==================== [ 调试 ] ==================== //
 #define DEBUG_FUNC NSLog(@"%s",__func__);
 #define DEBUG_LOG(description)     NSLog(@"%@",description);
 #define DEBUG_LOG_OBJ(description,obj) NSLog(@"%@:%@",description,obj);
-#define DEBUG_LOG_POINT(point) NSLog(@"{%f,%f}",point.x,point.y);
-#define DEBUG_LOG_SIZE(size) NSLog(@"{%f,%f}",size.width,size.height);
+#define DEBUG_LOG_INT(int) NSLog(@"%s:%d",__func__,int);
+#define DEBUG_LOG_FLOAT(float) NSLog(@"%s:%f",__func__,float);
+#define DEBUG_LOG_POINT(point) NSLog(@"%s:%@",__func__,NSStringFromCGPoint(point));
+#define DEBUG_LOG_SIZE(size) NSLog(@"%s:{%f,%f}",__func__,size.width,size.height);
 
 
 

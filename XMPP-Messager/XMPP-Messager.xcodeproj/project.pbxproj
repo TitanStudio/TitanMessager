@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD5495951D32324D006854EB /* SCLAlertView+ATAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5495941D32324D006854EB /* SCLAlertView+ATAlert.m */; };
+		DD54959A1D325B65006854EB /* ATRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD5495991D325B65006854EB /* ATRootViewController.xib */; };
 		DD6F79B81D2DF5380089A3BE /* ATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6F79B71D2DF5380089A3BE /* ATRootViewController.m */; };
 		DD6F79BB1D2DF5830089A3BE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6F79BA1D2DF5830089A3BE /* BaseViewController.m */; };
 		DD6F79BE1D2DF5990089A3BE /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6F79BD1D2DF5990089A3BE /* BaseNavigationController.m */; };
@@ -35,18 +37,21 @@
 		DD6F7A0C1D2E72280089A3BE /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD6F7A0A1D2E72280089A3BE /* ChatViewController.xib */; };
 		DD6F7A101D2E73830089A3BE /* MainTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6F7A0E1D2E73830089A3BE /* MainTabbarController.m */; };
 		DD6F7A111D2E73830089A3BE /* MainTabbarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD6F7A0F1D2E73830089A3BE /* MainTabbarController.xib */; };
+		DDBD98031D2FA93B00FCDC2E /* Login.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBD98021D2FA93B00FCDC2E /* Login.xcassets */; };
 		DDCD925B1D2BB83100D3E329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCD92591D2BB83100D3E329 /* Main.storyboard */; };
 		DDCD92601D2BB83100D3E329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCD925E1D2BB83100D3E329 /* LaunchScreen.storyboard */; };
 		DDCD927D1D2BB8D100D3E329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCD92761D2BB8D100D3E329 /* AppDelegate.m */; };
 		DDCD927E1D2BB8D100D3E329 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCD92791D2BB8D100D3E329 /* main.m */; };
 		DDCD927F1D2BB8D100D3E329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCD927C1D2BB8D100D3E329 /* ViewController.m */; };
-		DDCD92811D2BBC4600D3E329 /* QQ.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDCD92801D2BBC4600D3E329 /* QQ.xcassets */; };
 		DDCD92871D2BC25F00D3E329 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDCD92861D2BC25F00D3E329 /* Asset.xcassets */; };
 		EB77C2273F5D3C295636B4AE /* libPods-XMPP-Messager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE844CCDD570ABADE54BA096 /* libPods-XMPP-Messager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8B8C54809F09428B5DC0C6D0 /* Pods-XMPP-Messager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPP-Messager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XMPP-Messager/Pods-XMPP-Messager.debug.xcconfig"; sourceTree = "<group>"; };
+		DD5495931D32324D006854EB /* SCLAlertView+ATAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView+ATAlert.h"; sourceTree = "<group>"; };
+		DD5495941D32324D006854EB /* SCLAlertView+ATAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView+ATAlert.m"; sourceTree = "<group>"; };
+		DD5495991D325B65006854EB /* ATRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATRootViewController.xib; sourceTree = "<group>"; };
 		DD6F79431D2BD8160089A3BE /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		DD6F79B61D2DF5380089A3BE /* ATRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATRootViewController.h; sourceTree = "<group>"; };
 		DD6F79B71D2DF5380089A3BE /* ATRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATRootViewController.m; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 		DD6F7A0D1D2E73830089A3BE /* MainTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabbarController.h; sourceTree = "<group>"; };
 		DD6F7A0E1D2E73830089A3BE /* MainTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabbarController.m; sourceTree = "<group>"; };
 		DD6F7A0F1D2E73830089A3BE /* MainTabbarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabbarController.xib; sourceTree = "<group>"; };
+		DDBD98021D2FA93B00FCDC2E /* Login.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Login.xcassets; sourceTree = "<group>"; };
 		DDCD924D1D2BB83100D3E329 /* XMPP-Messager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XMPP-Messager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCD925A1D2BB83100D3E329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDCD925F1D2BB83100D3E329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,7 +109,6 @@
 		DDCD92791D2BB8D100D3E329 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DDCD927B1D2BB8D100D3E329 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DDCD927C1D2BB8D100D3E329 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DDCD92801D2BBC4600D3E329 /* QQ.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = QQ.xcassets; sourceTree = "<group>"; };
 		DDCD92861D2BC25F00D3E329 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
 		DE844CCDD570ABADE54BA096 /* libPods-XMPP-Messager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPP-Messager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D72D8B349F99BF6681D97B /* Pods-XMPP-Messager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPP-Messager.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMPP-Messager/Pods-XMPP-Messager.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 				DD6F79F51D2E3EAB0089A3BE /* XMPPManager.m */,
 				DD6F79F71D2E3EC00089A3BE /* DBManager.h */,
 				DD6F79F81D2E3EC00089A3BE /* DBManager.m */,
+				DDBD98021D2FA93B00FCDC2E /* Login.xcassets */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 				DD6F79C21D2DF6300089A3BE /* Personal */,
 				DD6F79B61D2DF5380089A3BE /* ATRootViewController.h */,
 				DD6F79B71D2DF5380089A3BE /* ATRootViewController.m */,
+				DD5495991D325B65006854EB /* ATRootViewController.xib */,
 				DD6F79BF1D2DF5B10089A3BE /* BaseTabBarController.h */,
 				DD6F79C01D2DF5B10089A3BE /* BaseTabBarController.m */,
 				DD6F79BC1D2DF5990089A3BE /* BaseNavigationController.h */,
@@ -238,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				DDCD92611D2BB83100D3E329 /* Info.plist */,
-				DDCD92801D2BBC4600D3E329 /* QQ.xcassets */,
 				DDCD92861D2BC25F00D3E329 /* Asset.xcassets */,
 				DD6F79CC1D2DFE350089A3BE /* Tabbar.xcassets */,
 			);
@@ -392,6 +398,8 @@
 			children = (
 				DD6F79EE1D2E3CCA0089A3BE /* UIButton+ATButton.h */,
 				DD6F79EF1D2E3CCA0089A3BE /* UIButton+ATButton.m */,
+				DD5495931D32324D006854EB /* SCLAlertView+ATAlert.h */,
+				DD5495941D32324D006854EB /* SCLAlertView+ATAlert.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -473,10 +481,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD54959A1D325B65006854EB /* ATRootViewController.xib in Resources */,
 				DD6F79D71D2E021D0089A3BE /* FriendViewController.xib in Resources */,
 				DDCD92601D2BB83100D3E329 /* LaunchScreen.storyboard in Resources */,
 				DD6F79E11D2E02420089A3BE /* MeViewController.xib in Resources */,
-				DDCD92811D2BBC4600D3E329 /* QQ.xcassets in Resources */,
+				DDBD98031D2FA93B00FCDC2E /* Login.xcassets in Resources */,
 				DD6F7A111D2E73830089A3BE /* MainTabbarController.xib in Resources */,
 				DDCD92871D2BC25F00D3E329 /* Asset.xcassets in Resources */,
 				DD6F79DC1D2E02340089A3BE /* DiscoverViewController.xib in Resources */,
@@ -566,6 +575,7 @@
 				DD6F79D61D2E021D0089A3BE /* FriendViewController.m in Sources */,
 				DDCD927F1D2BB8D100D3E329 /* ViewController.m in Sources */,
 				DD6F79FF1D2E4E6C0089A3BE /* FriendsModel.m in Sources */,
+				DD5495951D32324D006854EB /* SCLAlertView+ATAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

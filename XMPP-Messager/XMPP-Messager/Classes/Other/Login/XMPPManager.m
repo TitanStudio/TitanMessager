@@ -34,7 +34,11 @@
 
 @implementation XMPPManager
 
+
 static XMPPManager *sigle = nil;
+
+
+
 
 
 
@@ -109,12 +113,25 @@ static XMPPManager *sigle = nil;
     @synchronized(self) {
         
         if (!sigle) {
-            sigle = [[super alloc]init];
+            sigle = [[self alloc]init];
         }
     }
     
     return sigle;
 }
+
+- (instancetype)init{
+    @synchronized (self) {
+        if (self = [super init]) {
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(offLine) name:NOTI_XMPP object:NOTI_XMPP_DISCONNECT];
+            
+        }
+        return self;
+    }
+    
+}
+
 
 // stream懒加载
 - (XMPPStream *)stream{
@@ -123,9 +140,14 @@ static XMPPManager *sigle = nil;
         // 创建
         _stream = [[XMPPStream alloc] init];
         // 绑定服务器
-        [_stream setHostName:XMPP_HOSTNAME];
+        NSString *newHost = [[NSUserDefaults standardUserDefaults] objectForKey:XMPP_HOSTNAME];
+        if (newHost.length) {
+            [_stream setHostName:newHost];
+        } else {
+            [_stream setHostName:XMPP_HOSTNAME];
+        }
         // 绑定端口
-        [_stream setHostPort:XMPP_HOSTPORT];
+        [_stream setHostPort:5222];
         // 设置代理
         [_stream addDelegate:self delegateQueue:dispatch_get_main_queue()];
     }
@@ -149,7 +171,13 @@ static XMPPManager *sigle = nil;
     self.currentPassword = password;
     
     // 封装jid
-    username = [username stringByAppendingString:XMPP_DOMAIN];
+    NSString *newDomain = [[NSUserDefaults standardUserDefaults] objectForKey:XMPP_DOMAIN];
+    if (newDomain.length) {
+        username = [username stringByAppendingString:newDomain];
+    } else {
+        username = [username stringByAppendingString:XMPP_DOMAIN];
+    }
+    
     XMPPJID *jid = [XMPPJID jidWithString:username];
     self.stream.myJID = jid;
     
@@ -160,7 +188,7 @@ static XMPPManager *sigle = nil;
     }
     
     // 连接服务器(状态结果在 xmppstream的代理中返回)
-    BOOL ret = [self.stream connectWithTimeout:20 error:nil];
+    [self.stream connectWithTimeout:5 error:nil];
     
     
 }
@@ -183,6 +211,7 @@ static XMPPManager *sigle = nil;
 // 连接失败了
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
     DEBUG_LOG_OBJ(@"连接失败了", error.description);
+//    [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_XMPP object:NOTI_XMPP_CONNECT_FAIL];
 }
 
 // 连接成功
@@ -193,6 +222,7 @@ static XMPPManager *sigle = nil;
     [self.stream sendElement:presence];
     self.callBack(YES);
     DEBUG_FUNC;
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_XMPP object:NOTI_XMPP_CONNECT_SUCCESS];
     
     
 }
@@ -214,6 +244,7 @@ static XMPPManager *sigle = nil;
 - (void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error{
     DEBUG_LOG_OBJ(@"注册失败",error.description);
     self.callBack(NO);
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_XMPP_CONNECT_FAIL object:error];
 }
 
 // 发送查询指令成功
@@ -260,7 +291,7 @@ static XMPPManager *sigle = nil;
 
 // 监听好友发送的信息
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
-    DEBUG_LOG(@"好友发来的信息");
+    DEBUG_LOG(@"好友发来了信息");
     NSString *body = message.body;
     if (body.length) {
         // 来自谁的消息
@@ -286,6 +317,8 @@ static XMPPManager *sigle = nil;
         ChatFrameModel *fm = [[ChatFrameModel alloc]init];
         //        走set方法，会动态计算 虽有 控件的frame
         fm.messageModel = currentMessage;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_MESSAGE object:currentMessage];
         
         //        启动blocl之前 判断一下当前block是否实现
         if (self.getMessageBlcok) {

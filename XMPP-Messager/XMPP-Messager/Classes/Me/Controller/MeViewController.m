@@ -7,7 +7,7 @@
 //
 
 #import "MeViewController.h"
-
+#import "LoginViewController.h"
 
 @interface MeViewController ()
 
@@ -19,6 +19,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"我";
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,5 +38,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
 
 @end

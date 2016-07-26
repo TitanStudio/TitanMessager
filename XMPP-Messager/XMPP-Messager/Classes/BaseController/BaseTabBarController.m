@@ -27,7 +27,8 @@
     
     [self _initUI];
     [self _setupChildViewControllers];
-    [self _setupTabbarItems];
+//    [self _setupTabbarItems];
+    
     
     
 }
@@ -50,9 +51,9 @@
 - (void)_initUI{
     
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.view.layer.shadowRadius = 2.0f;
-    self.view.layer.shadowOffset = CGSizeMake(-1.5, 0);
-    self.view.layer.shadowOpacity = 0.5;
+    self.view.layer.shadowRadius = 3.0f;
+    self.view.layer.shadowOffset = CGSizeMake(0, 0);
+    self.view.layer.shadowOpacity = 0.7f;
 }
 
 - (void)_setupTabbarItems{
@@ -70,14 +71,15 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     
-    [UITabBar appearance].tintColor = COLOR_TINT;
-    [UITabBar appearance].barTintColor = [UIColor whiteColor];
+//    [UITabBar appearance].tintColor = COLOR_TINT;
+//    [UITabBar appearance].barTintColor = [UIColor whiteColor];
     
 }
 
 - (void)_setupChildViewControllers{
     
     // 添加子控制器
+    
     [self _setupChlidController:[[BaseNavigationController alloc] initWithRootViewController:[[MessageViewController alloc] init]] title:@"消息" image:@"tabbar_mainframe" selectedImage:@"tabbar_mainframeHL"];
     [self _setupChlidController:[[BaseNavigationController alloc] initWithRootViewController:[[FriendViewController alloc] init]] title:@"朋友" image:@"tabbar_contacts" selectedImage:@"tabbar_contactsHL"];
     [self _setupChlidController:[[BaseNavigationController alloc] initWithRootViewController:[[DiscoverViewController alloc] init]] title:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discoverHL"];
@@ -85,11 +87,9 @@
     
     
     
-    
 }
 
-
-- (void)_setupChlidController:(BaseNavigationController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
+- (void)_setupChlidController:(UINavigationController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
     
     vc.tabBarItem.title = title;
     if (image.length) {
@@ -100,6 +100,7 @@
     [self addChildViewController:vc];
     
 }
+
 
 
 

@@ -6,8 +6,8 @@
 //  Copyright © 2016年 Titan Studio. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface MainTabbarController : UIViewController
+@interface MainTabbarController : BaseViewController
 
 @end

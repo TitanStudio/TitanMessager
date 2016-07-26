@@ -41,8 +41,6 @@
 - (void)_setupNavigationBar{
     
     
-    [UINavigationBar appearance].tintColor = COLOR_WHITE;
-    [UINavigationBar appearance].barTintColor = COLOR_TINT;
     [UINavigationBar appearance].translucent = NO;
     self.navigationBar.barStyle = UIBarStyleBlack;
     

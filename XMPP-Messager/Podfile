@@ -9,7 +9,7 @@ target ‘XMPP-Messager’ do
   #pod 'BaiduMapKit'
   #pod 'YYText'
   pod 'SCLAlertView-Objective-C', '~> 1.0.3'
-  #pod 'IQKeyboardManager', '~> 4.0.3'
+  pod 'IQKeyboardManager', '~> 4.0.3'
   #pod 'MJExtension', '~> 3.0.10'
   #pod 'SDWebImage', '~> 3.7.6'
   

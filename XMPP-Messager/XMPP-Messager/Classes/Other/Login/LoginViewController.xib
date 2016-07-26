@@ -8,6 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="domain" destination="1Td-kB-655" id="DT4-1D-mbY"/>
+                <outlet property="ejabberView" destination="hUb-Py-gkP" id="hkf-5e-Zne"/>
+                <outlet property="host" destination="cxi-jT-5lk" id="vOt-ec-mP4"/>
                 <outlet property="loginBtn" destination="iCf-x8-exb" id="d6v-PK-PQq"/>
                 <outlet property="password" destination="N17-G8-fQ0" id="tEp-uW-Ev1"/>
                 <outlet property="userImage" destination="hUf-YL-wW1" id="9n0-FU-lrc"/>
@@ -30,7 +33,7 @@
                                 <constraint firstAttribute="height" constant="36" id="cu1-wf-gRW"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N17-G8-fQ0">
                             <rect key="frame" x="0.0" y="44" width="288" height="36"/>
@@ -39,7 +42,7 @@
                                 <constraint firstAttribute="height" constant="36" id="KJA-F4-TMd"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -93,18 +96,60 @@
                         <action selector="signupTapped:" destination="-1" eventType="touchUpInside" id="jfd-RD-Kx6"/>
                     </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUb-Py-gkP">
+                    <rect key="frame" x="16" y="280" width="288" height="80"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="@aesir-imac.local" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Td-kB-655">
+                            <rect key="frame" x="0.0" y="0.0" width="288" height="36"/>
+                            <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="9sl-bg-iXd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="192.168.1.106" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-jT-5lk">
+                            <rect key="frame" x="0.0" y="44" width="288" height="36"/>
+                            <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="9PF-4B-hZ6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="cxi-jT-5lk" secondAttribute="bottom" id="8eP-EO-ifs"/>
+                        <constraint firstItem="cxi-jT-5lk" firstAttribute="leading" secondItem="hUb-Py-gkP" secondAttribute="leading" id="Bx0-5I-Ih0"/>
+                        <constraint firstAttribute="trailing" secondItem="cxi-jT-5lk" secondAttribute="trailing" id="HRP-k3-aBj"/>
+                        <constraint firstAttribute="height" constant="80" id="WXp-6x-E75"/>
+                        <constraint firstAttribute="trailing" secondItem="1Td-kB-655" secondAttribute="trailing" id="ZJz-Y7-uFR"/>
+                        <constraint firstItem="1Td-kB-655" firstAttribute="top" secondItem="hUb-Py-gkP" secondAttribute="top" id="hTm-6o-rsP"/>
+                        <constraint firstItem="1Td-kB-655" firstAttribute="leading" secondItem="hUb-Py-gkP" secondAttribute="leading" id="iP5-s3-fa2"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWc-oC-gQI">
+                    <rect key="frame" x="8" y="8" width="68" height="30"/>
+                    <connections>
+                        <action selector="close" destination="-1" eventType="touchUpInside" id="uXU-eX-BE9"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="iCf-x8-exb" firstAttribute="top" secondItem="EVf-j0-BKy" secondAttribute="bottom" constant="8" id="2ce-oE-N5j"/>
+                <constraint firstItem="hUb-Py-gkP" firstAttribute="top" secondItem="iCf-x8-exb" secondAttribute="bottom" constant="8" id="6do-8H-7uV"/>
                 <constraint firstItem="hUf-YL-wW1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NKM-qx-kbA"/>
                 <constraint firstAttribute="trailing" secondItem="iCf-x8-exb" secondAttribute="trailing" constant="16" id="Pxp-IX-2kR"/>
                 <constraint firstItem="igM-Qq-ktR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="VfU-Qi-vOv"/>
                 <constraint firstAttribute="trailing" secondItem="EVf-j0-BKy" secondAttribute="trailing" constant="16" id="Vmp-dx-uH4"/>
                 <constraint firstItem="EVf-j0-BKy" firstAttribute="top" secondItem="hUf-YL-wW1" secondAttribute="bottom" constant="8" id="ds5-PE-Jwz"/>
                 <constraint firstItem="EVf-j0-BKy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="gL2-uk-vpT"/>
+                <constraint firstAttribute="trailing" secondItem="hUb-Py-gkP" secondAttribute="trailing" constant="16" id="lrR-Zi-jsy"/>
                 <constraint firstAttribute="trailing" secondItem="CGk-Sp-J1r" secondAttribute="trailing" constant="8" id="m3O-nm-brX"/>
                 <constraint firstAttribute="bottom" secondItem="CGk-Sp-J1r" secondAttribute="bottom" constant="8" id="o8E-6q-odm"/>
+                <constraint firstItem="hUb-Py-gkP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="oly-HP-R0G"/>
                 <constraint firstItem="iCf-x8-exb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="ore-Hw-1Sx"/>
                 <constraint firstAttribute="bottom" secondItem="igM-Qq-ktR" secondAttribute="bottom" constant="8" id="taZ-S8-bsd"/>
                 <constraint firstItem="hUf-YL-wW1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="yNB-j2-ouU"/>

@@ -39,7 +39,7 @@
     
     [self _initUI];
     
-    
+    [self _loadTapGestureRecognizer];
     
 }
 
@@ -58,9 +58,30 @@
     
 }
 
+- (void)_loadTapGestureRecognizer{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userLogin:)];
+    self.tap = tap;
+    [self.userInfo addGestureRecognizer:self.tap];
+    
+}
 
-
-
+- (void)userLogin:(UITapGestureRecognizer *)tap{
+    CGPoint location = [tap locationInView:self.view];
+    if (CGRectContainsPoint(self.userInfo.frame, location)) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_XMPP object:NOTI_XMPP_DISCONNECT];
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        [self presentViewController:loginVC animated:YES completion:^{
+            
+            
+        }];
+        
+        
+        
+    }
+    
+    
+}
 
 
 

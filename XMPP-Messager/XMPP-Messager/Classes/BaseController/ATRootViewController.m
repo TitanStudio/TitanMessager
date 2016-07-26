@@ -7,13 +7,18 @@
 //
 
 #import "ATRootViewController.h"
-#import "LoginViewController.h"
+#import "MessageModel.h"
+#import <SCLAlertView.h>
+#import "UIViewController+ATScreenGesture.h"
+
+// 侧滑打开之后的Center
+#define SCREEN_CenterX_Opened (SCREEN_CenterX + SCREEN_W - at_rightMargin)
 
 @interface ATRootViewController ()
 
 @property (assign, nonatomic) BOOL isLeftViewOpen;
 
-@property (weak, nonatomic) UIGestureRecognizer *pan;
+@property (weak, nonatomic) UIPanGestureRecognizer *pan;
 
 @end
 
@@ -23,24 +28,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // 把personal控制器作为子控制器
-    [self addChildViewController:self.personalVC];
-    // 重新修改frame
-    self.personalVC.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
-    // 把personal的视图添加到view
-    [self.view addSubview:self.personalVC.view];
+    // 初始化控制器 : 主视图/左侧抽屉视图
+    [self at_initWithMainVC:self.tabbarVC andleftVC:self.personalVC];
     
-    // 添加tabbarVC
-    [self addChildViewController:self.tabbarVC];
-    // tabbarVC.view
-    [self.view addSubview:self.tabbarVC.view];
+    // 设置app全局的主题色
+    [self at_setAppThemeColor:nil];
     
+    // 加载手势识别
+    [self at_loadPanGesture];
     
-    self.isLeftViewOpen = NO;
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(leftView:) name:NOTI_LEFTVIEW object:nil];
+    // 设置通知
+    [self _setupNotification];
     
-    
-    [self performSelector:@selector(userLogin) withObject:nil afterDelay:0.5f];
     
 }
 
@@ -49,17 +48,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+#pragma mark - 🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫 私有方法
+
+#pragma mark 🚫 初始化
+
+// 设置通知
+- (void)_setupNotification{
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(receiveMessage:)
+                                                name:NOTI_MESSAGE object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(xmpp:)
+                                                name:NOTI_XMPP object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(xmppConnectFail:)
+                                                name:NOTI_XMPP_CONNECT_FAIL object:nil];
+    
 }
-*/
 
 
+#pragma mark 🚫 懒加载
 
 - (PersonalViewController *)personalVC{
     
@@ -78,48 +89,31 @@
     return _tabbarVC;
 }
 
-- (void)leftView:(NSNotification *)noti{
+#pragma mark 🚫 通知
+
+- (void)receiveMessage:(NSNotification *)noti{
     
-    if ([noti.name isEqualToString:NOTI_LEFTVIEW]) {
-        if ([noti.object isEqualToString:NOTI_LEFTVIEW_OPEN]) {
-            [self openLeftView:YES];
-        } else if ([noti.object isEqualToString:NOTI_LEFTVIEW_CLOSE]){
-            [self openLeftView:NO];
-        }
-    }
+    MessageModel *message = (MessageModel *)noti.object;
+    [SCLAlertView at_showNotice:self title:message.fromJid subTitle:message.content closeButtonTitle:@"ok" duration:5.0f];
     
 }
 
-- (void)openLeftView:(BOOL)yesOrNo{
+
+- (void)xmppConnectFail:(NSNotification *)noti{
     
-    if (self.isLeftViewOpen ^ yesOrNo) {
-        if (yesOrNo) {
-            [UIView animateWithDuration:0.38f delay:0 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
-                self.tabbarVC.view.center = CGPointMake(SCREEN_W * 1.3, SCREEN_H * 0.5);
-            } completion:^(BOOL finished) {
-                self.isLeftViewOpen = YES;
-            }];
-        } else {
-            [UIView animateWithDuration:0.38f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                self.tabbarVC.view.center = CGPointMake(SCREEN_W * 0.5, SCREEN_H * 0.5);
-            } completion:^(BOOL finished) {
-                self.isLeftViewOpen = NO;
-            }];
-        }
+    [SCLAlertView at_showError:self title:@"注册失败" subTitle:noti.object closeButtonTitle:@"ok" duration:0.0f];
+    
+}
+
+- (void)xmpp:(NSNotification *)noti{
+    
+    if ([noti.object isEqualToString:NOTI_XMPP_CONNECT_FAIL]) {
+        [SCLAlertView at_showError:self title:@"连接失败" subTitle:@"连接服务器错误" closeButtonTitle:@"ok" duration:0.0f];
     }
     
 }
 
 
-- (void)userLogin{
-    
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    [self presentViewController:loginVC animated:YES completion:^{
-        
-        
-        
-    }];
-    
-}
+
 
 @end

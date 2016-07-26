@@ -14,7 +14,6 @@
 
 #define XMPP_DOMAIN   @"@aesir-imac.local"
 #define XMPP_HOSTNAME @"192.168.1.106"
-#define XMPP_HOSTPORT 5222
 @interface XMPPManager : NSObject
 
 // 注册

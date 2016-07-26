@@ -10,7 +10,6 @@
 
 @interface MainTabbarController ()
 
-@property (weak, nonatomic) UIGestureRecognizer *pan;
 
 @end
 
@@ -19,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self _setupPanGestureRecongizer];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,42 +35,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
-
-- (void)_setupPanGestureRecongizer{
-    
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
-    self.pan = pan;
-    [self.view addGestureRecognizer:pan];
-    
-}
-
-- (void)panAction:(UIPanGestureRecognizer *)pan{
-    
-    if (pan && pan.state == UIGestureRecognizerStateBegan) {
-        CGPoint translation = [pan translationInView:self.view];
-        CGPoint location = [pan locationInView:self.view];
-        DEBUG_LOG_POINT(location);
-        // 过滤
-        if (location.x > 100 || fabs(translation.y) > 100) {
-            return;
-        }
-        
-        if (translation.x < 0) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_LEFTVIEW object:NOTI_LEFTVIEW_CLOSE];
-        } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_LEFTVIEW object:NOTI_LEFTVIEW_OPEN];
-        }
-        
-        
-        
-    }
-    
-}
-
-
-
 
 
 

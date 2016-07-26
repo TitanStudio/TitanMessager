@@ -8,7 +8,7 @@
 
 #import "FriendViewController.h"
 #import "XMPPManager.h"
-//#import "MessageViewController.h"
+
 #import "ChatViewController.h"
 #import "FriendsModel.h"
 @interface FriendViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -22,7 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     [self _init];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,11 +53,21 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    self.myJid = [[NSUserDefaults standardUserDefaults] objectForKey:@"jid"];
-    // 查询好友列表
-    [self fetchAllFirendWithJid:self.myJid];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:NOTI_XMPP object:nil];
+    
+    
 }
 
+- (void)loginSuccess:(NSNotification *)noti{
+    DEBUG_FUNC;
+    if ([noti.object isEqualToString:NOTI_XMPP_CONNECT_SUCCESS]) {
+        self.myJid = [[NSUserDefaults standardUserDefaults] objectForKey:@"jid"];
+        // 查询好友列表
+        [self fetchAllFirendWithJid:self.myJid];
+        [self.tableView reloadData];
+    }
+    
+}
 
 - (NSMutableArray *)allFriends{
     
@@ -107,6 +121,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+
 
 
 

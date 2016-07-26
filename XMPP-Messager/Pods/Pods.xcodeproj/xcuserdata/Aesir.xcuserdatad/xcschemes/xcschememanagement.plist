@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XMPP-Messager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3A8658B68EC6F1E1A768DFA59F1D8951</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>48F687CDE9990BD471D7883061F7E5D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A059048C5B07E1A574F185DC9A4ABF5</key>
+		<key>4CB29770BAD59CA5491ED64A038671E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EDDB7EB52ACDC40FDD69CC04BC9E3772</key>
+		<key>C2628ECE60B952073EFFD833DD9C28BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EEEA813F56E2977478784E74808449D2</key>
+		<key>C743C42395D3C33F9883CB4690B475A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
