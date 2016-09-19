@@ -1,2 +1,2 @@
-# XMPP-Messager
-XPMM
+# TitanMessenger
+a messenger with XMPP
